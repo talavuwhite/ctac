@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="description" content="Coffee Ta Cocktails — coffee, smoothies, signature cocktails and more. Order online for pickup or delivery." />
+  <title>Coffee Ta Cocktails | Order Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Coffee Ta Cocktails home">
+      <img src="assets/logo.png" alt="Coffee Ta Cocktails logo" />
+    </a>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#visit">Visit</a>
+      <button class="btn btn-gold" data-open-order>Order Now</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-copy">
+        <span class="eyebrow">COFFEE • CAFÉ • COCKTAILS</span>
+        <h1>Start with coffee.<br><em>Stay for the vibe.</em></h1>
+        <p>Fresh coffee, handcrafted drinks, smoothies and cocktails — all in one place.</p>
+        <div class="hero-actions">
+          <button class="btn btn-red" data-open-order>Order Online</button>
+          <a class="btn btn-outline" href="#menu">View Menu</a>
+        </div>
+        <div class="order-options">
+          <span>✓ Pickup</span><span>✓ DoorDash Delivery Ready</span><span>✓ Mobile Friendly</span>
+        </div>
+      </div>
+      <div class="hero-logo-wrap">
+        <img src="assets/logo.png" alt="" class="hero-logo" />
+      </div>
+    </section>
+
+    <section class="quick-order">
+      <div>
+        <span class="eyebrow">SKIP THE LINE</span>
+        <h2>Order your favorites online.</h2>
+      </div>
+      <button class="btn btn-gold" data-open-order>Start Order</button>
+    </section>
+
+    <section id="menu" class="menu-section">
+      <div class="section-heading">
+        <span class="eyebrow">OUR MENU</span>
+        <h2>Something for every mood.</h2>
+        <p>Choose a category below to add items directly to your order.</p>
+      </div>
+
+      <div class="menu-tabs" role="tablist">
+        <button class="tab active" data-category="coffee">Coffee</button>
+        <button class="tab" data-category="espresso">Espresso</button>
+        <button class="tab" data-category="frappes">Frappes</button>
+        <button class="tab" data-category="tea">Tea & More</button>
+        <button class="tab" data-category="smoothies">Smoothies</button>
+        <button class="tab" data-category="signature-coffee">Signature Coffees</button>
+        <button class="tab" data-category="cocktails">Cocktails</button>
+        <button class="tab" data-category="beer-wine">Beer & Wine</button>
+      </div>
+
+      <div id="menuGrid" class="menu-grid"></div>
+
+      <div class="full-menu">
+        <h3>Original menus</h3>
+        <div class="menu-posters">
+          <a href="assets/coffee-menu.png" target="_blank"><img src="assets/coffee-menu.png" alt="Coffee menu"></a>
+          <a href="assets/cocktails-menu.png" target="_blank"><img src="assets/cocktails-menu.png" alt="Cocktails menu"></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="about-card">
+        <span class="eyebrow">COFFEE BY DAY • COCKTAILS BY NIGHT</span>
+        <h2>A local spot built for good drinks and good company.</h2>
+        <p>Coffee Ta Cocktails brings café favorites and a relaxed cocktail experience together under one roof. Grab a morning coffee, meet a friend for a smoothie, or unwind with a signature drink.</p>
+      </div>
+      <div class="age-card">
+        <strong>21+ Alcohol Notice</strong>
+        <p>Alcohol purchases require valid government-issued identification and are subject to local laws and delivery eligibility.</p>
+      </div>
+    </section>
+
+    <section id="visit" class="visit-section">
+      <div>
+        <span class="eyebrow">VISIT US</span>
+        <h2>Coffee Ta Cocktails</h2>
+        <p id="storeAddress">Add store address in config.js</p>
+        <p id="storeHours">Add store hours in config.js</p>
+      </div>
+      <div class="visit-actions">
+        <a id="directionsBtn" class="btn btn-outline" href="#" target="_blank" rel="noopener">Directions</a>
+        <a id="phoneBtn" class="btn btn-gold" href="#">Call Us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="assets/logo.png" alt="Coffee Ta Cocktails" />
+    <p>Good coffee. Good drinks. Good company.</p>
+    <small>© <span id="year"></span> Coffee Ta Cocktails. Please drink responsibly.</small>
+  </footer>
+
+  <button class="floating-cart" id="floatingCart" data-open-order aria-label="Open order cart">
+    <span>Order</span>
+    <b id="cartCount">0</b>
+  </button>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="order-drawer" id="orderDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div>
+        <span class="eyebrow">YOUR ORDER</span>
+        <h2>Order Online</h2>
+      </div>
+      <button class="icon-btn" id="closeDrawer" aria-label="Close order">×</button>
+    </div>
+
+    <div class="fulfillment">
+      <button class="fulfill active" data-fulfillment="pickup">Pickup</button>
+      <button class="fulfill" data-fulfillment="delivery">Delivery</button>
+    </div>
+
+    <div id="deliveryNotice" class="delivery-notice hidden">
+      <strong>DoorDash Delivery</strong>
+      <p>Connect your DoorDash Storefront URL in <code>config.js</code>. Once added, this button sends guests directly to your DoorDash ordering page.</p>
+      <a class="btn btn-red full" id="doorDashBtn" href="#" target="_blank" rel="noopener">Continue with DoorDash</a>
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+    <div id="emptyCart" class="empty-cart">
+      <strong>Your cart is empty.</strong>
+      <p>Add something from the menu to get started.</p>
+    </div>
+
+    <div class="cart-summary">
+      <div><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+      <div class="muted"><span>Tax</span><span>Calculated at checkout</span></div>
+      <div class="muted"><span>Delivery</span><span>Calculated by provider</span></div>
+    </div>
+
+    <button class="btn btn-gold full" id="checkoutBtn">Continue to Checkout</button>
+  </aside>
+
+  <dialog id="checkoutDialog">
+    <form method="dialog" class="checkout-card" id="checkoutForm">
+      <button class="icon-btn dialog-close" value="cancel" aria-label="Close checkout">×</button>
+      <span class="eyebrow">PICKUP ORDER</span>
+      <h2>Checkout</h2>
+      <p class="muted-text">This starter site includes the full customer checkout flow. Connect your payment provider before accepting live payments.</p>
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Phone<input name="phone" required autocomplete="tel" inputmode="tel"></label>
+      <label>Email<input name="email" type="email" autocomplete="email"></label>
+      <label>Pickup time
+        <select name="pickupTime">
+          <option>ASAP</option>
+          <option>In 30 minutes</option>
+          <option>In 45 minutes</option>
+          <option>In 60 minutes</option>
+        </select>
+      </label>
+      <label>Order notes<textarea name="notes" rows="3" placeholder="Special instructions"></textarea></label>
+      <label class="checkline"><input type="checkbox" name="ageConfirm"> I confirm I am 21+ if my order contains alcohol.</label>
+      <button type="submit" class="btn btn-red full">Review Order</button>
+    </form>
+  </dialog>
+
+  <dialog id="reviewDialog">
+    <div class="checkout-card">
+      <button class="icon-btn dialog-close" id="closeReview" aria-label="Close">×</button>
+      <span class="eyebrow">ORDER REVIEW</span>
+      <h2>Ready for payment integration.</h2>
+      <div id="reviewContent" class="review-content"></div>
+      <p class="integration-note">For live ordering, connect Stripe/Square/Toast for payment or use DoorDash Storefront as the hosted checkout. The site is already structured for either option.</p>
+      <button class="btn btn-gold full" id="copyOrderBtn">Copy Order Summary</button>
+    </div>
+  </dialog>
+
+  <div class="age-gate" id="ageGate">
+    <div class="age-gate-card">
+      <img src="assets/logo.png" alt="" />
+      <h2>Alcohol item</h2>
+      <p>You must be 21 or older to purchase alcohol. Valid ID is required at pickup or delivery.</p>
+      <div class="age-actions">
+        <button class="btn btn-gold" id="confirmAge">I’m 21+</button>
+        <button class="btn btn-outline" id="cancelAge">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
